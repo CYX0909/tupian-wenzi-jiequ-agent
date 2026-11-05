@@ -1,0 +1,25 @@
+Gemini 圖片文字擷取 Agent
+
+一、安裝與啟動（macOS / Apple Silicon）
+1. 開啟「終端機」，輸入 cd 後加一個空格，將此資料夾拖入視窗，再按 Return。
+2. 建立並啟用虛擬環境：
+   python3 -m venv .venv
+   source .venv/bin/activate
+3. 安裝套件：
+   python -m pip install -r requirements.txt
+4. 啟動程式：
+   python app.py
+5. 開啟終端機顯示的網址，通常是 http://127.0.0.1:7860。
+
+二、API Key 與模型
+至 Google AI Studio 取得 Gemini API Key，在操作介面輸入；或在此資料夾建立 .env，填入：
+GEMINI_API_KEY=你的金鑰
+
+可在介面指定主要模型及備援模型；可用模型與額度依帳戶而異。圖片會傳送至 Gemini API，可能產生費用，請先確認圖片內容與帳戶方案。
+
+三、使用方式
+上傳一張或多張圖片，必要時填入辨識說明，再按「擷取原始文字」。結果以檔名區分；若某張處理失敗，可單獨重新上傳重試。預設保留原文符號；「移除行首 Markdown 格式」會修改目前結果，請視需求使用。
+
+直式長截圖可勾選分段處理，以減少小字因縮圖而模糊；分段可能截斷文字，且會增加 API 請求次數、耗時與費用，請核對分段處的內容。
+
+結束程式可在終端機按 Control + C；離開虛擬環境可輸入 deactivate。

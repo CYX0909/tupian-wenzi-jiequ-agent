@@ -1,0 +1,4 @@
+gradio>=5,<7
+google-genai>=1,<2
+python-dotenv>=1,<2
+Pillow>=10,<13
